@@ -25,6 +25,21 @@ Lightweight AJAX autocomplete for Bootstrap 3
 *  <p><b>url:</b><br>The url to submit query</p>
 
 *  <p><b>method:</b><br>Request method (get, post)</p>
+ 
+*  <p><b>wrapperClass:</b><br>CSS Class used for the element wrapper</p>
+
+*  <p><b>menuClass:</b><br>CSS Class used for the suggestions menu</p>
+
+*  <p><b>idField:</b><br>Include hidden input field for selected option id (true,false) Default: true</p>
+  
+*  <p><b>idFieldName:</b><br>Hidden input field name. Default: elementName_id</p>
+
+*  <p><b>minLength:</b><br>Minimum string length before sending query request</p>
+
+*  <p><b>dataParams:</b><br>Send additional data parameters with request. Usage: <code>dataParams: {key:value}</code></p>
+
+*  <p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {key:$('#formElement')}</code></p>
+
 
 
 
