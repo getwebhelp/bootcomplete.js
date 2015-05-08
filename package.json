@@ -1,0 +1,12 @@
+{
+  "name": "bootcomplete.js",
+  "description": "Lightweight AJAX autocomplete plugin for Bootstrap.",
+  "version": "1.0.0",
+  "author": "Rick Somers <rick@getwebhelp.com>",
+  "main": "dist/jquery.bootcomplete.js",
+  "homepage": "http://getwebhelp.com/bootcomplete",
+  "dependencies": {
+    "jquery": ">= 1.0",
+    "bootstrap": ">= 3.0"
+  }
+}
