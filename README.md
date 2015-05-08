@@ -23,23 +23,23 @@ Lightweight AJAX autocomplete for Bootstrap 3
 
 <h3>Options<h3>
 
-*<p><b>url:</b><br>The url to submit query</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>url:</b><br>The url to submit query</p>
 
-  <p><b>method:</b><br>Request method (get, post)</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>method:</b><br>Request method (get, post)</p>
  
-  <p><b>wrapperClass:</b><br>CSS Class used for the element wrapper</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>wrapperClass:</b><br>CSS Class used for the element wrapper</p>
 
-  <p><b>menuClass:</b><br>CSS Class used for the suggestions menu</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>menuClass:</b><br>CSS Class used for the suggestions menu</p>
 
-  <p><b>idField:</b><br>Include hidden input field for selected option id (true,false) Default: true</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>idField:</b><br>Include hidden input field for selected option id (true,false) Default: true</p>
   
-  <p><b>idFieldName:</b><br>Hidden input field name. Default: elementName_id</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>idFieldName:</b><br>Hidden input field name. Default: elementName_id</p>
 
-  <p><b>minLength:</b><br>Minimum string length before sending query request</p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>minLength:</b><br>Minimum string length before sending query request</p>
 
-  <p><b>dataParams:</b><br>Send additional data parameters with request. Usage: <code>dataParams: {keyName : value}</code></p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>dataParams:</b><br>Send additional data parameters with request. Usage: <code>dataParams: {keyName : value}</code></p>
 
-  <p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {keyName : $('#formElement')}</code></p>
+&nbsp;&nbsp;&nbsp;&nbsp;<p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {keyName : $('#formElement')}</code></p>
 
 
 <h3>Demo</h3>
