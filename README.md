@@ -21,9 +21,10 @@ Lightweight AJAX autocomplete for Bootstrap 3
 </code>
 
 <h3>Options<h3>
+<blockquote>
+  <p><b>url:</b><br>The url to submit query</p>
 
-> <p><b>url:</b><br>The url to submit query</p>
-
-> <p><b>method:</b><br>Request method (get, post)</p>
+  <p><b>method:</b><br>Request method (get, post)</p>
+</blockquote>
 
 
