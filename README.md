@@ -8,9 +8,9 @@ Lightweight AJAX autocomplete for Bootstrap 3
 </ul>
 
 <h3>Basic Usage</h3>
-> $('#input').bootcomplete({url:'/search.php'});
+<code>$('#input').bootcomplete({url:'/search.php'});</code>
 
-<h3>JSON Object</h3>
+<h3>JSON Response Object</h3>
 <code>
   [
     {
