@@ -36,9 +36,13 @@ Lightweight AJAX autocomplete for Bootstrap 3
 
 *  <p><b>minLength:</b><br>Minimum string length before sending query request</p>
 
-*  <p><b>dataParams:</b><br>Send additional data parameters with request. Usage: <code>dataParams: {key:value}</code></p>
+*  <p><b>dataParams:</b><br>Send additional data parameters with request. Usage: <code>dataParams: {keyName : value}</code></p>
 
-*  <p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {key:$('#formElement')}</code></p>
+*  <p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {keyName : $('#formElement')}</code></p>
+
+<h3>Demo</h3>
+Coming soon...
+
 
 
 
