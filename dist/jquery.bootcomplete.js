@@ -44,7 +44,6 @@
             })
             var dyFormParams = $.extend({}, arr );
             var Data = $.extend({query: $(this).val()}, settings.dataParams, dyFormParams);
-            console.log(Data)
             
             if(!Data.query){
                 $(this).next('.'+settings.menuClass).html('')    
