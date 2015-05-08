@@ -41,7 +41,7 @@ Lightweight AJAX autocomplete for Bootstrap 3
 *  <p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {keyName : $('#formElement')}</code></p>
 
 <h3>Demo</h3>
-Coming soon...
+<p>Coming soon</p>
 
 
 
