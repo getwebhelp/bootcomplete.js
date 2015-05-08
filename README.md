@@ -1,5 +1,5 @@
 # bootcomplete.js
-Lightweight AJAX autocomplete for Bootstrap 3
+Lightweight AJAX autocomplete for Bootstrap
 
 <h2>Requires</h2>
 <ul>
