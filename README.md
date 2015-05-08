@@ -43,7 +43,7 @@ Lightweight AJAX autocomplete for Bootstrap
 
 
 <h3>Demo</h3>
-<p>Coming soon</p>
+<p><a href="http://getwebhelp.com/bootcomplete/" title="bootcomplete.js examples">Click here</a> to see the examples in action.</p>
 
 
 
