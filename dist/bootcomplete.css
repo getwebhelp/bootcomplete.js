@@ -1,0 +1,10 @@
+.bc-wrapper{
+    position: relative;
+}
+
+.bc-wrapper .bc-menu{
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    display: none;
+}
