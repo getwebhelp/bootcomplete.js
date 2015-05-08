@@ -8,4 +8,4 @@ Lightweight AJAX autocomplete for Bootstrap 3
 </ul>
 
 <h3>Basic Usage</h3>
-<p>$('#input').bootcomplete({url:'/search.php'});</p>
+> $('#input').bootcomplete({url:'/search.php'});
