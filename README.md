@@ -3,9 +3,8 @@ Lightweight AJAX autocomplete for Bootstrap
 
 <h3>Requires</h3>
 <ul>
-  <li>jquery.js</li>
-  <li>bootstrap.js</li>
-  <li>bootstrap.css</li>
+  <li><a href="https://jquery.com/download/">jQuery</a></li>
+  <li><a href="http://getbootstrap.com/getting-started/">Bootstrap</a></li>
 </ul>
 
 
