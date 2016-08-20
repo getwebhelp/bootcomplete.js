@@ -27,7 +27,11 @@
         $(this).attr('autocomplete','off')
         $(this).wrap('<div class="'+settings.wrapperClass+'"></div>')
         if(settings.idField){
-            $('<input type="hidden" name="'+settings.idFieldName+'" value="">').insertBefore($(this))
+            // insert new hidden field if not already one present
+            var existingHiddenField = $('input[name="' + settings.idFieldName + '"]');
+            if (!existingHiddenField || !existingHiddenField.length) {
+                $('<input type="hidden" name="' + settings.idFieldName + '" value="">').insertBefore($(this));
+            }
         }
         $('<div class="'+settings.menuClass+' list-group"></div>').insertAfter($(this))
         
@@ -79,7 +83,7 @@
         function selectResult(){
             $(that).val($(this).data('label'))
             if(settings.idField){
-                $(that).prev('input[name="'+settings.idFieldName+'"]').val($(this).data('id'))
+                $('input[name="'+settings.idFieldName+'"]').val($(this).data('id'));
             }
             $(that).next('.'+settings.menuClass).hide()
             return false;
