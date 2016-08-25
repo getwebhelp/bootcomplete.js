@@ -26,8 +26,13 @@
         
         $(this).attr('autocomplete','off')
         $(this).wrap('<div class="'+settings.wrapperClass+'"></div>')
-        if(settings.idField){
-            $('<input type="hidden" name="'+settings.idFieldName+'" value="">').insertBefore($(this))
+        if (settings.idField) {
+            if ($(this).parent().parent().find('input[name="' + settings.idFieldName + '"]').length !== 0) {
+                //use existing id field
+            } else {
+                //there is no existing id field so create one
+                $('<input type="hidden" name="' + settings.idFieldName + '" value="">').insertBefore($(this))
+            }
         }
         $('<div class="'+settings.menuClass+' list-group"></div>').insertAfter($(this))
         
@@ -78,10 +83,17 @@
         
         function selectResult(){
             $(that).val($(this).data('label'))
-            if(settings.idField){
-                $(that).prev('input[name="'+settings.idFieldName+'"]').val($(this).data('id'))
+            if (settings.idField) {
+                if ($(that).parent().parent().find('input[name="' + settings.idFieldName + '"]').length !== 0) {
+                    //use existed id field
+                    $(that).parent().parent().find('input[name="' + settings.idFieldName + '"]').val($(this).data('id'));
+                }
+                else {
+                    //use created id field
+                    $(that).prev('input[name="' + settings.idFieldName + '"]').val($(this).data('id'));
+                }
             }
-            $(that).next('.'+settings.menuClass).hide()
+            $(that).next('.' + settings.menuClass).hide();
             return false;
         }
 
