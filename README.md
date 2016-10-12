@@ -1,51 +1,53 @@
 # bootcomplete.js
 Lightweight AJAX autocomplete for Bootstrap
 
-<h3>Requires</h3>
-<ul>
-  <li><a href="https://jquery.com/download/">jQuery</a></li>
-  <li><a href="http://getbootstrap.com/getting-started/">Bootstrap</a></li>
-</ul>
+* Easy to use alternative to Typeahead/Bloodhound
+* Returns the ID and value (label) of selected
+* Results can be chained/filtered by other form values
+
+## Demo
+
+[Click here](http://getwebhelp.com/bootcomplete/) to see the examples in action.
+
+## Requirements
+
+* [jQuery](https://jquery.com/download/)
+* [Bootstrap 3](http://getbootstrap.com/)
 
 
-<h3>Basic Usage</h3>
-<code>$('#input').bootcomplete({url:'/search.php'});</code>
+## Usage
 
-<h3>JSON Response Object</h3>
-<code>
+```javascript
+$('#input').bootcomplete({url:'/search.php',options});
+```
+
+### JSON Response Object
+```javascript
   [
     {
       id : someId,
       label : "some label name"
     }
   ]
-</code>
+```
 
-<h3>Options<h3>
+## Options
 
-<p><b>url:</b><br>The url to submit query</p>
+* **url:** The url to submit query
 
-<p><b>method:</b><br>Request method (get, post)</p>
+* **method:** Request method (get, post)
  
-<p><b>wrapperClass:</b><br>CSS Class used for the element wrapper</p>
+* **wrapperClass:** CSS Class used for the element wrapper
 
-<p><b>menuClass:</b><br>CSS Class used for the suggestions menu</p>
+* **menuClass:** CSS Class used for the suggestions menu
 
-<p><b>idField:</b><br>Include hidden input field for selected option id (true,false) Default: true</p>
+* **idField:** Include hidden input field for selected option id (true,false) Default: true
   
-<p><b>idFieldName:</b><br>Hidden input field name. Default: elementName_id</p>
+* **idFieldName:** Hidden input field name. Default: elementName_id
 
-<p><b>minLength:</b><br>Minimum string length before sending query request</p>
+* **minLength:** Minimum string length before sending query request
 
-<p><b>dataParams:</b><br>Send additional data parameters with request. Usage: <code>dataParams: {keyName : value}</code></p>
+* **dataParams:** Send additional data parameters with request. Usage: ```dataParams: {keyName : value}```
 
-<p><b>formParams:</b><br>Send chained form parameters with request. Usage: <code>formParams: {keyName : $('#formElement')}</code></p>
-
-
-<h3>Demo</h3>
-<p><a href="http://getwebhelp.com/bootcomplete/" title="bootcomplete.js examples">Click here</a> to see the examples in action.</p>
-
-
-
-
+* **formParams:** Send chained form parameters with request. Usage: ```formParams: {keyName : $('#formElement')}```
 
