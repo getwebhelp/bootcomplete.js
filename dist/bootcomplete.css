@@ -8,3 +8,8 @@
     width: 100%;
     display: none;
 }
+
+.input-group .bc-wrapper .bc-menu {
+    top: 38px;
+}
+

@@ -36,10 +36,18 @@
         }
         $('<div class="'+settings.menuClass+' list-group"></div>').insertAfter($(this))
         
-        $(this).on( "keyup", searchQuery );
-        
+        $(this).on("keyup", searchQuery);
+        $(this).on("focusout", hideThat)
+
         var xhr;
-        var that =  $(this)
+        var that = $(this)
+
+        function hideThat() {
+            if ($('.list-group-item' + ':hover').length) {
+                return;
+            }
+            $(that).next('.' + settings.menuClass).hide();
+        }
         
         function searchQuery(){
             
