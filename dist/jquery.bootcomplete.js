@@ -95,10 +95,14 @@
                 if ($(that).parent().parent().find('input[name="' + settings.idFieldName + '"]').length !== 0) {
                     //use existed id field
                     $(that).parent().parent().find('input[name="' + settings.idFieldName + '"]').val($(this).data('id'));
+					//ensure we trigger the onchange so we can do stuff
+					$(that).parent().parent().find('input[name="' + settings.idFieldName + '"]').trigger('change');
                 }
                 else {
                     //use created id field
                     $(that).prev('input[name="' + settings.idFieldName + '"]').val($(this).data('id'));
+					//ensure we trigger the onchange so we can do stuff
+					$(that).prev('input[name="' + settings.idFieldName + '"]').trigger('change');
                 }
             }
             $(that).next('.' + settings.menuClass).hide();
