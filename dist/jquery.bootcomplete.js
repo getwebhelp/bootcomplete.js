@@ -64,7 +64,7 @@
             DataObj[settings.queryKey] = $(this).val();
             var Data = $.extend(DataObj, settings.dataParams, dyFormParams);
             
-            if(!Data.query){
+            if(!Data[settings.queryKey]){
                 $(this).next('.'+settings.menuClass).html('')    
                 $(this).next('.'+settings.menuClass).hide()    
             }
