@@ -1,4 +1,4 @@
-//*
+/*
 * @name jQuery.bootcomplete
 * @projectDescription Lightweight AJAX autocomplete for Bootstrap 3
 * @author Rick Somers | http://getwebhelp.com/bootcomplete
