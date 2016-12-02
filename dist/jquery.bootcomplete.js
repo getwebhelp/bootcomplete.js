@@ -1,4 +1,4 @@
-/*
+//*
 * @name jQuery.bootcomplete
 * @projectDescription Lightweight AJAX autocomplete for Bootstrap 3
 * @author Rick Somers | http://getwebhelp.com/bootcomplete
@@ -19,7 +19,11 @@
             idFieldName : $(this).attr('name')+"_id",
             minLength : 3,
             dataParams : {},
-            formParams : {}
+            formParams : {},
+            resultId : 'id',
+            resultLabel : 'label',
+            queryKey : 'query',
+            limit : -1
         }
         
         var settings = $.extend( {}, defaults, options );
@@ -56,14 +60,16 @@
                 arr[k]=$(v).val()
             })
             var dyFormParams = $.extend({}, arr );
-            var Data = $.extend({query: $(this).val()}, settings.dataParams, dyFormParams);
+            var DataObj = {};
+            DataObj[settings.queryKey] = $(this).val();
+            var Data = $.extend(DataObj, settings.dataParams, dyFormParams);
             
             if(!Data.query){
                 $(this).next('.'+settings.menuClass).html('')    
                 $(this).next('.'+settings.menuClass).hide()    
             }
             
-            if(Data.query.length >= settings.minLength){
+            if(Data[settings.queryKey].length >= settings.minLength){
                 
                 if(xhr && xhr.readyState != 4){
                     xhr.abort();
@@ -77,7 +83,8 @@
                     success: function( json ) {
                         var results = ''
                         $.each( json, function(i, j) {
-                            results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            if(settings.limit === i) return false;
+                            results += '<a href="#" class="list-group-item" data-id="'+j[settings.resultId]+'" data-label="'+j[settings.resultLabel]+'">'+j[settings.resultLabel]+'</a>'
                         });
                         
                         $(that).next('.'+settings.menuClass).html(results)
