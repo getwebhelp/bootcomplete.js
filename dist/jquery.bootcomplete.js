@@ -9,7 +9,6 @@
 (function ( $ ) {
  
     $.fn.bootcomplete = function(options) {
-        
         var defaults = {
             url : "/search.php",
             method : 'get',
@@ -17,6 +16,7 @@
             menuClass : "bc-menu",
             idField : true,
             idFieldName : $(this).attr('name')+"_id",
+            inputSelector : 'input[name="' + $(this).attr('name') + '"]',
             minLength : 3,
             dataParams : {},
             formParams : {},
@@ -39,9 +39,9 @@
             }
         }
         $('<div class="'+settings.menuClass+' list-group"></div>').insertAfter($(this))
-        
-        $(this).on("keyup", searchQuery);
-        $(this).on("focusout", hideThat)
+
+        $('body').on("keyup",settings.inputSelector, searchQuery);
+        $('body').on("focusout",settings.inputSelector, hideThat);
 
         var xhr;
         var that = $(this)
@@ -54,7 +54,6 @@
         }
         
         function searchQuery(){
-            
             var arr = [];
             $.each(settings.formParams,function(k,v){
                 arr[k]=$(v).val()
