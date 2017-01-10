@@ -25,8 +25,8 @@ $('#input').bootcomplete({url:'/search.php',options});
 ```javascript
   [
     {
-      id : someId,
-      label : "some label name"
+      "id" : "someId",
+      "label" : "some label name"
     }
   ]
 ```
