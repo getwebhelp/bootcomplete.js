@@ -9,7 +9,6 @@
 (function ( $ ) {
  
     $.fn.bootcomplete = function(options) {
-        
         var defaults = {
             url : "/search.php",
             method : 'get',
@@ -17,9 +16,14 @@
             menuClass : "bc-menu",
             idField : true,
             idFieldName : $(this).attr('name')+"_id",
+            inputSelector : 'input[name="' + $(this).attr('name') + '"]',
             minLength : 3,
             dataParams : {},
-            formParams : {}
+            formParams : {},
+            resultId : 'id',
+            resultLabel : 'label',
+            queryKey : 'query',
+            limit : -1
         }
         
         var settings = $.extend( {}, defaults, options );
@@ -35,9 +39,9 @@
             }
         }
         $('<div class="'+settings.menuClass+' list-group"></div>').insertAfter($(this))
-        
-        $(this).on("keyup", searchQuery);
-        $(this).on("focusout", hideThat)
+
+        $('body').on("keyup",settings.inputSelector, searchQuery);
+        $('body').on("focusout",settings.inputSelector, hideThat);
 
         var xhr;
         var that = $(this)
@@ -50,20 +54,21 @@
         }
         
         function searchQuery(){
-            
             var arr = [];
             $.each(settings.formParams,function(k,v){
                 arr[k]=$(v).val()
             })
             var dyFormParams = $.extend({}, arr );
-            var Data = $.extend({query: $(this).val()}, settings.dataParams, dyFormParams);
+            var DataObj = {};
+            DataObj[settings.queryKey] = $(this).val();
+            var Data = $.extend(DataObj, settings.dataParams, dyFormParams);
             
-            if(!Data.query){
+            if(!Data[settings.queryKey]){
                 $(this).next('.'+settings.menuClass).html('')    
                 $(this).next('.'+settings.menuClass).hide()    
             }
             
-            if(Data.query.length >= settings.minLength){
+            if(Data[settings.queryKey].length >= settings.minLength){
                 
                 if(xhr && xhr.readyState != 4){
                     xhr.abort();
@@ -77,7 +82,8 @@
                     success: function( json ) {
                         var results = ''
                         $.each( json, function(i, j) {
-                            results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            if(settings.limit === i) return false;
+                            results += '<a href="#" class="list-group-item" data-id="'+j[settings.resultId]+'" data-label="'+j[settings.resultLabel]+'">'+j[settings.resultLabel]+'</a>'
                         });
                         
                         $(that).next('.'+settings.menuClass).html(results)
