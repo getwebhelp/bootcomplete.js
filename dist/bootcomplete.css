@@ -7,9 +7,21 @@
     z-index: 1000;
     width: 100%;
     display: none;
+    height: 206px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .input-group .bc-wrapper .bc-menu {
     top: 38px;
 }
 
+.bc-wrapper .bc-menu a.list-group-item span{
+    text-decoration: underline;
+    color:#fff;
+}
+
+.bc-wrapper .bc-menu a.list-group-item:hover{
+    background:#286090;
+    color:#Fff;
+}
