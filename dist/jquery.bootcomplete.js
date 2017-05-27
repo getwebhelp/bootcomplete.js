@@ -18,8 +18,11 @@
             idField : true,
             idFieldName : $(this).attr('name')+"_id",
             minLength : 3,
+            id: 'id',
+            label: 'label',
             dataParams : {},
-            formParams : {}
+            formParams : {},
+            select: function(item) {}
         }
         
         var settings = $.extend( {}, defaults, options );
@@ -77,7 +80,7 @@
                     success: function( json ) {
                         var results = ''
                         $.each( json, function(i, j) {
-                            results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            results += '<a href="#" class="list-group-item" data-id="'+j[settings.id]+'" data-label="'+j[settings.label]+'">'+j[settings.label]+'</a>'
                         });
                         
                         $(that).next('.'+settings.menuClass).html(results)
@@ -104,6 +107,11 @@
 					//ensure we trigger the onchange so we can do stuff
 					$(that).prev('input[name="' + settings.idFieldName + '"]').trigger('change');
                 }
+            } else {
+                var item = {};
+                item.id = $(this).data('id');
+                item.label= $(this).data('label');
+                settings.select(item);
             }
             $(that).next('.' + settings.menuClass).hide();
             return false;
