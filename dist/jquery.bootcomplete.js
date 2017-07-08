@@ -86,6 +86,10 @@
                         $(that).next('.'+settings.menuClass).html(results)
                         $(that).next('.'+settings.menuClass).children().on("click", selectResult)
                         $(that).next('.'+settings.menuClass).show()
+                        
+                        if(json.length == 0) {
+                            settings.handleEmpty();
+                        }
                    
                     }
                 })
