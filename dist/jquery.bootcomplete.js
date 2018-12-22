@@ -19,7 +19,9 @@
             idFieldName : $(this).attr('name')+"_id",
             minLength : 3,
             dataParams : {},
-            formParams : {}
+            formParams : {},
+            beforeSelect : function() {},
+            afterSelect : function() {}
         }
         
         var settings = $.extend( {}, defaults, options );
@@ -51,6 +53,9 @@
         
         function searchQuery(){
             
+            //beforeSelect Function
+            settings.beforeSelect.call(this);
+
             var arr = [];
             $.each(settings.formParams,function(k,v){
                 arr[k]=$(v).val()
@@ -106,6 +111,10 @@
                 }
             }
             $(that).next('.' + settings.menuClass).hide();
+
+            //afterSelect Function
+            settings.afterSelect.call(this);
+
             return false;
         }
 
