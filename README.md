@@ -51,3 +51,6 @@ $('#input').bootcomplete({url:'/search.php',options});
 
 * **formParams:** Send chained form parameters with request. Usage: ```formParams: {keyName : $('#formElement')}```
 
+* **beforeSelect:** Callback, triggers before the population of dropdown list. Usage: ```beforeSelect: function(){ alert('try me') }```
+
+* **afterSelect:** Callback, triggers after select an option from the dropdown list. Usage: ```afterSelect: function(){ alert('try me after') }```
