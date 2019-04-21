@@ -130,6 +130,6 @@ dropdownFormat: function( j ){
 <td>dropdownFormat</td>
 <td>Function</td>
 <td>null</td>
-<td>Callback, returns a custom format for the dropdown list. Usage: <pre>afterSelect: function(id, value) { alert('try me after') }</td>
+<td>Callback, returns a custom format for the dropdown list. Usage: <pre>afterSelect: function( j ) { return '<a data-id="'+ j.id +'" class="my-custom-option">'+ j.label + ' - ' + j.someExtraTextFromTheServerJSON +'</a>' }</td>
 </tr>
 </table>
