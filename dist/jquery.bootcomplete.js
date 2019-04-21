@@ -21,7 +21,8 @@
             dataParams : {},
             formParams : {},
             beforeSelect : function() {},
-            afterSelect : function() {}
+            afterSelect : function(id, value) {},
+            dropdownFormat : null
         }
         
         var settings = $.extend( {}, defaults, options );
@@ -82,7 +83,13 @@
                     success: function( json ) {
                         var results = ''
                         $.each( json, function(i, j) {
-                            results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            //Check if custom format is set
+                            if (settings.dropdownFormat !== '' && settings.dropdownFormat !== undefined && settings.dropdownFormat !== null) {
+                                results += settings.dropdownFormat.call(this, j);
+                            }else{
+                                results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            } 
+
                         });
                         
                         $(that).next('.'+settings.menuClass).html(results)
@@ -112,8 +119,11 @@
             }
             $(that).next('.' + settings.menuClass).hide();
 
+            var id = $(this).data('id'), 
+                value = $(this).data('label');
+
             //afterSelect Function
-            settings.afterSelect.call(this);
+            settings.afterSelect.call(this, id, value);
 
             return false;
         }
