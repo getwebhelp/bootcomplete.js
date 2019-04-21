@@ -31,8 +31,7 @@ $('#input').bootcomplete({url:'/search.php',options});
   ]
 ```
 
-## Options
-
+# Options
                 <table>
                     <tr>
                         <th>Option</th>
