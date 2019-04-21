@@ -31,7 +31,28 @@ $('#input').bootcomplete({url:'/search.php',options});
   ]
 ```
 
-# Options
+### Custom Dropdown
+You can set a custom format for each option of the dropdown with 
+
+#### JSON Response Object
+```javascript
+dropdownFormat: function( j ){
+            return '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'"> <img src="'+ j.logo +'" width="50px" height="50px"/> ' + j.label+'</a>'
+        }
+```
+
+#### JSON Response Object
+```php
+[
+  { 
+    "id": "1",
+    "label": "My Custom Option",
+    "logo": "http:\/\/url\/web\/uploads\/avatars\/avatar-custom.png"
+  }
+]
+```
+
+## Options
 <table>
 <tr>
 <th>Option</th>
@@ -85,30 +106,30 @@ $('#input').bootcomplete({url:'/search.php',options});
 <td>dataParams</td>
 <td>json</td>
 <td>null</td>
-<td>Send additional data parameters with request. Usage: ```dataParams: {keyName : value}```</td>
+<td>Send additional data parameters with request. Usage: <pre>dataParams: {keyName : value}</pre></td>
 </tr>
 <tr>
 <td>formParams</td>
 <td>jQuery Object</td>
 <td>null</td>
-<td>Send chained form parameters with request. Usage: ```formParams: {keyName : $('#formElement')}```</td>
+<td>Send chained form parameters with request. Usage: <pre>formParams: {keyName : $('#formElement')}</pre></td>
 </tr>
 <tr>
 <td>beforeSelect</td>
 <td>function</td>
 <td>null</td>
-<td>Callback, triggers before the population of dropdown list. Usage: ```beforeSelect: function(){ alert('try me') }```</td>
+<td>Callback, triggers before the population of dropdown list. Usage: <pre>beforeSelect: function(){ alert('try me') }</pre></td>
 </tr>
 <tr>
 <td>afterSelect</td>
 <td>function</td>
 <td>null</td>
-<td>Callback, triggers after select an option from the dropdown list. Usage: ```afterSelect: function(){ alert('try me after') }```</td>
+<td>Callback, triggers after select an option from the dropdown list. Usage: <pre>afterSelect: function(id, value) { alert('try me after') }</pre></td>
 </tr>
 <tr>
 <td>dropdownFormat</td>
 <td>Function</td>
 <td>null</td>
-<td></td>
+<td>Callback, returns a custom format for the dropdown list. Usage: <pre>afterSelect: function(id, value) { alert('try me after') }</td>
 </tr>
 </table>
