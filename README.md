@@ -34,14 +34,18 @@ $('#input').bootcomplete({url:'/search.php',options});
 ### Custom Dropdown
 You can set a custom format for each option of the dropdown with 
 
-#### JSON Response Object
+#### DropdownFormat Option
 ```javascript
-dropdownFormat: function( j ){
-            return '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'"> <img src="'+ j.logo +'" width="50px" height="50px"/> ' + j.label+'</a>'
-        }
+var options = {  url: 'someURL',
+            dropdownFormat: function( j ){
+                return '<a href="#" class="list-group-item" data-id="' + j.id + '"> <img src="'+ j.logo +'" width="50px" height="50px"/> ' +  j.label +'</a>'
+            }
+         }
+
+$(input[name=autocomplete]).bootcomplete(options)
 ```
 
-#### JSON Response Object
+#### Serverside JSON Response Object
 ```php
 [
   { 
