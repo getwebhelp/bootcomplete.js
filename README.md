@@ -36,7 +36,7 @@ You can set a custom format for each option of the dropdown with dropdownFormat 
 
 ```javascript
 var options = { 
-				url: 'someURL',
+		    url: 'someURL',
 	            dropdownFormat: function( j ){
 	                return '<a href="#" class="list-group-item" data-id="' + j.id + '"> <img src="'+ j.logo +'" width="50px" height="50px"/> ' +  j.label +'</a>'
 	            }
