@@ -126,7 +126,7 @@ $('input[name=autocomplete]').bootcomplete(options)
 </tr>
 <tr>
 <td>afterSelect</td>
-<td>function</td>
+<td>Function</td>
 <td>null</td>
 <td>Callback, triggers after select an option from the dropdown list. Usage: <pre>afterSelect: function(id, value) { alert('try me after') }</pre></td>
 </tr>
@@ -134,6 +134,6 @@ $('input[name=autocomplete]').bootcomplete(options)
 <td>dropdownFormat</td>
 <td>Function</td>
 <td>null</td>
-<td>Callback, returns a custom format for the dropdown list. Usage: <pre>afterSelect: function( j ) { return '<a data-id="'+ j.id +'" class="my-custom-option">'+ j.label + ' - ' + j.someExtraTextFromTheServerJSON +'</a>' }</td>
+<td>Callback, returns a custom format for the dropdown list. Usage: <pre>dropdownFormat: function( j ) { return '<a data-id="'+ j.id +'" class="my-custom-option">'+ j.label + ' - ' + j.someExtraTextFromTheServerJSON +'</a>' }</td>
 </tr>
 </table>
