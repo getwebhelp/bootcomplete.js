@@ -5,6 +5,8 @@
 * @version 1.0
 * @license MIT License
 * 
+* @forked Renan Díaz | https://reandimo.site/
+*
 */
 (function ( $ ) {
  
@@ -19,7 +21,10 @@
             idFieldName : $(this).attr('name')+"_id",
             minLength : 3,
             dataParams : {},
-            formParams : {}
+            formParams : {},
+            beforeSelect : function() {},
+            afterSelect : function(id, value) {},
+            dropdownFormat : null
         }
         
         var settings = $.extend( {}, defaults, options );
@@ -51,6 +56,9 @@
         
         function searchQuery(){
             
+            //beforeSelect Function
+            settings.beforeSelect.call(this);
+
             var arr = [];
             $.each(settings.formParams,function(k,v){
                 arr[k]=$(v).val()
@@ -77,7 +85,13 @@
                     success: function( json ) {
                         var results = ''
                         $.each( json, function(i, j) {
-                            results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            //Check if custom format is set
+                            if (settings.dropdownFormat !== '' && settings.dropdownFormat !== undefined && settings.dropdownFormat !== null) {
+                                results += settings.dropdownFormat.call(this, j);
+                            }else{
+                                results += '<a href="#" class="list-group-item" data-id="'+j.id+'" data-label="'+j.label+'">'+j.label+'</a>'
+                            } 
+
                         });
                         
                         $(that).next('.'+settings.menuClass).html(results)
@@ -106,6 +120,13 @@
                 }
             }
             $(that).next('.' + settings.menuClass).hide();
+
+            var id = $(this).data('id'), 
+                value = $(this).data('label');
+
+            //afterSelect Function
+            settings.afterSelect.call(this, id, value);
+
             return false;
         }
 
